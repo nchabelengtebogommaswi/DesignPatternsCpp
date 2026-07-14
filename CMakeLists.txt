@@ -9,3 +9,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Place all executables inside ./bin
 #
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
+
+add_executable(
+        DesignPatternsCpp
+        src/main.cpp
+)
+
+target_include_directories(
+        DesignPatternsCpp
+        PRIVATE include
+)
