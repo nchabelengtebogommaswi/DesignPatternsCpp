@@ -1,10 +1,13 @@
 #include <iostream>
 #include "notification/NotificationService.h"
+#include "notification/EmailNotification.h"
+#include "notification/SmsNotification.h"
+#include "notification/WhatsAppNotification.h"
 
 int main()
 {
     std::string notificationType = "";
-    NotificationService *notificationService = new NotificationService();
+    NotificationService *notificationService = nullptr;
 
     std::cout << "Please Enter Notification Type to Send" << std::endl;
     std::cout << "email" << std::endl;
@@ -15,7 +18,21 @@ int main()
     std::cout << std::endl;
     std::cin >> notificationType;
 
-    notificationService->sendNotification(notificationType);
-    delete notificationService;
+    if (notificationType == "email") {
+        notificationService = new EmailNotification();
+    } else if (notificationType == "sms") {
+        notificationService = new SmsNotification();
+    }else if (notificationType == "whatsapp") {
+        notificationService = new WhatsAppNotification();
+    }
+
+    if (notificationService != nullptr) {
+        notificationService->sendNotification();
+        delete notificationService;
+    }
+    else {
+        std::cout << "unknown notification" << std::endl;
+    }
+
     return 0;
 }

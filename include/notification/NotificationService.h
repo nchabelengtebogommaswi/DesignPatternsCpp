@@ -3,5 +3,6 @@
 
 class NotificationService {
     public:
-        bool sendNotification(const std::string& notificationType);
+        virtual bool sendNotification() = 0;
+    virtual ~NotificationService() = default;
 };
