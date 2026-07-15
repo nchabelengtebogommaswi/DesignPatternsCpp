@@ -13,9 +13,14 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 add_executable(
         DesignPatternsCpp
         src/main.cpp
-        src/notification/NotificationService.cpp
+        src/notification/EmailNotification.cpp
+        src/notification/SmsNotification.cpp
+        src/notification/WhatsAppNotification.cpp
 
         include/notification/NotificationService.h
+        include/notification/EmailNotification.h
+        include/notification/SmsNotification.h
+        include/notification/WhatsAppNotification.h
 )
 
 target_include_directories(
